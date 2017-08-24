@@ -3,8 +3,9 @@
 //
 // API implementations should provide context value keys for functions which
 // support context.  A group of functions may share the same key if only one of
-// them will be called with a given context (including its parent contexts).
-// The functions should call Ack with the key just before exiting.
+// them will be called with a given context (including any parent context which
+// was created via WithAck).  The functions should call Ack with the key just
+// before exiting.
 //
 // API clients should call WithAck with the key which represents the function
 // they are about to call.  When it's important to wait until the function has
